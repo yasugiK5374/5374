@@ -2,7 +2,7 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
-    <title>5374(ｺﾞﾐﾅｼ).jp</title> 
+    <title>5374(ｺﾞﾐﾅｼ).jp 安来市版</title> 
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0" />
     <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-precomposed.png" />
@@ -11,11 +11,47 @@
     <link href="css/custom.css" rel="stylesheet" media="screen" />
   </head>
   <body>
+   <div >
+      <img src="./img/top_thumb_30.png" align="left" >
+  </div>
   <style id="accordion-style" type="text/css"></style>
   <div id="accordion"></div>
+  <select class="form-control" id="select_group"></select>
   <select class="form-control" id="select_area"></select>
   <div class="accordion" id="accordion3">
     <div class="accordion-group-top">
+    <!-- 追加↓ -->
+        <div class="accordion-inner">
+          <h3>※※ 準備中のため内容は保障しません ※※<br>
+          <h3>公式ページ　<a href="http://www.city.yasugi.shimane.jp/busyo/shiminseikatsu/kankyou/gomi/calendar/H25gomikarenda-.html" target="_blank" style=" color: #FF0000;text-decoration: underline;">家庭ごみ収集日程表</a>をご覧ください。</h3>
+          <br>
+          <h3>詳しくは<a href="http://www.city.yasugi.shimane.jp/busyo/shiminseikatsu/kankyou/gomi/" target="_blank" style=" color: #FF0000;text-decoration: underline;">安来市　ごみ（廃棄物）</a>をご覧ください。</h3>
+        </div>
+    <!-- 追加↑ -->
+    
+  <!--説明-->
+  <div class="accordion" id="accordion3">
+    <div class="accordion-group-top">
+      <div class="accordion-heading">
+        <a class="accordion-toggle-top" data-toggle="collapse" data-parent="#accordion3" href="#collapse3_1" style=" color: #000000;text-decoration: underline;">ごみの出し方について</a>
+      </div>
+      <div id="collapse3_1" class="accordion-body collapse">
+        <div class="accordion-inner">
+          <div id="help">
+            <article id="content" class="markdown-body">
+              <p>
+                収集日を確認し、その日の午前８時までに地域の決められた場所に出してください。<br>
+                ごみステーション（集積場）は地域（自治会など）で管理されています。<br>
+                他の地域のごみステーションには出さないでください。<br>
+                <a href="http://www.city.yasugi.shimane.jp/busyo/shiminseikatsu/kankyou/gomi/tebiki.data/0000002.pdf" target="_blank" style=" color: #FF0000;text-decoration: underline;">安来市ごみ分別の手引き</a>
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>    
+      
       <div class="accordion-heading">
         <a class="accordion-toggle-top" data-toggle="collapse" data-parent="#accordion3" href="#collapse3_0">5374.jpについて</a>
       </div>
@@ -27,7 +63,7 @@ Code for Kanazawaでは、先ずは正しいゴミの捨て方に注目しまし
 目的と使い方は、とてもシンプルです。
             <h2>目的</h2>
 「いつ、どのゴミが収集されているのか？」
-例えばお引っ越しをされた場合や、新しく金沢市に住むことになった時、このアプリを使えば、すぐに分かるようにデザインされています。
+例えばお引っ越しをされた場合や、新しく松江市に住むことになった時、このアプリを使えば、すぐに分かるようにデザインされています。
             <h2>使い方</h2>
             <h3>色でゴミのジャンルを表示</h3>
             <p>一番近いゴミの日とジャンルを上から順に表示しています。</p>
@@ -37,7 +73,7 @@ Code for Kanazawaでは、先ずは正しいゴミの捨て方に注目しまし
             <p>お住まいの地域を選択することで、ゴミ収集日が自動的に更新されます。</p>
             <div id="caption">
               <h4>提供されるゴミ情報について</h4>
-              <p>金沢市が公開しているデータからCfKが独自に解析し、アプリに実装しました。</p>
+              <p>松江市が公開しているデータを独自に解析し、アプリに実装しました。</p>
               <h4>ライセンスについて</h4>
               <p>本アプリの著作権はCode for Kanazawaに帰属します。</p>
             </div>
@@ -57,7 +93,8 @@ CfKは市民のための組織です。行政や民間企業の影響を受け�
         </div>
       </div>
     </div>
-  </div>
+  </div> 
+  
   <!-- JavaScript plugins (requires jQuery) -->
   <script src="js/jquery-1.10.2.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -75,8 +112,9 @@ CfKは市民のための組織です。行政や民間企業の影響を受け�
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-43926409-1', '5374.jp');
+  ga('create', 'UA-78614516-1', 'auto');
   ga('send', 'pageview');
   </script>
   </body>
 </html>
+
