@@ -9,6 +9,21 @@ a:hover {
 	color: white;
 	text-decoration: none;
 }
+
+/* ◇ */
+.aname{
+	display: table;
+	height: 69px;
+}
+
+.areaname{
+	font-size: 25px;
+	display: table-cell;
+	vertical-align: middle;
+	text-align:center;
+	color: #228b22;
+}
+
 .accordion-inner {
 	padding: 9px 15px;
 }
@@ -35,9 +50,13 @@ a:hover {
 	vertical-align: middle;
 	text-align: center;
 	width: 80%;
-	font-size: 22px;
+	/* font-size: 22px; */
+	font-size: 26px;
 }
 #accordion .accordion-heading .accordion-toggle {
+	/* ◇カラー追加 ↓ */
+	color: white;
+	/* ◇カラー追加 ↑ */
 	position: relative;
 	display: table;
 	padding: 0;
@@ -53,14 +72,19 @@ a:hover {
 }
 /* 指定日・直近日付 */
 #accordion .date {
+    /* ◇フォントサイズ追加 */
+	font-size: 1.3em;
 }
 /* 分別方法の頭文字(ふりがな) */
 #accordion .initials {
+	/* ◇フォントサイズ追加 */
+	font-size: 1.3em;	
 	color: #ffffff;
 }
 /* ゴミを捨てるときの注意事項 */
 #accordion .note {
-	font-size: 10px;
+	/* ◇font-size: 10px; */
+	font-size: 12px;
 }
 
 /*!
@@ -71,6 +95,8 @@ a:hover {
 }
 #accordion2 .accordion-inner {
 	text-align: center;
+    /* ◇フォントサイズ追加 */
+	font-size: 1.5em;
 }
 
 /*!
