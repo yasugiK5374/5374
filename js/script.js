@@ -526,7 +526,7 @@ $(function() {
     }
     var styleHTML = "";
     // ◇ var accordionHTML = "";
-    var accordionHTML = '   <div class="aname"> <div class="areaname">&ensp;' + area_name + "</div> </div>";
+    var accordionHTML = '   <div class="aname"> <div class="areaname"><p>' + area_name + "</p></div> </div>";
 
     //アコーディオンの分類から対応の計算を行います。
     for (var i in areaModel.trash) {
