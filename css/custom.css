@@ -13,7 +13,8 @@ a:hover {
 /* ◇ */
 .aname{
 	display: table;
-	height: 69px;
+	height: 64px;
+	width: 100%;
 }
 
 .areaname{
