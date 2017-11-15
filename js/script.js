@@ -522,7 +522,8 @@ $(function() {
     if(descriptions.length>4){
       accordion_height = accordion_height / 4.1;
       if (accordion_height>140) {accordion_height = accordion_height / descriptions.length;};
-      if (accordion_height<130) {accordion_height=130;};
+      // if (accordion_height<130) {accordion_height=130;};
+      if (accordion_height<100) {accordion_height=100;};	    
     }
     var styleHTML = "";
     // ◇ var accordionHTML = "";
