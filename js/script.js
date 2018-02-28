@@ -310,7 +310,7 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
       if (this.mostRecent == null && now.getTime() < day_list[i].getTime() + 24 * 60 * 60 * 1000) {
         this.mostRecent = day_list[i];
 
-        window.alert('ラベル◇' + this.label);
+        window.alert('ラベル◇' + this.label + '日付：' + this.mostRecent);
 
         for (var k in this.transferdata) {
 
