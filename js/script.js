@@ -8,7 +8,7 @@ var cblankStartDD = 30;
 var cblankEndMM = 1;
 var cblankEndDD = 3;
 
-var zurasi = '１月は１週ずらして収集します。'
+var zurasi = '１月の収集日は１週ずれます。'
 
 // ◇  var 今日 = new Date('2018/12/31');
 
