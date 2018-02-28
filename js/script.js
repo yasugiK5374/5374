@@ -8,6 +8,8 @@ var cblankStartDD = 30;
 var cblankEndMM = 1;
 var cblankEndDD = 3;
 
+var zurasi = '１月は１週ずらして収集します。'
+
 // ◇  var 今日 = new Date('2018/12/31');
 
 
@@ -258,7 +260,11 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
             if (areaObj.isBlankDay(d,s)) {
               if (WeekShift) {
                 isShift = true;
-                this.bikohyoji = "１月は１週ずらして収集します。";
+                if (day_mix[j].length > 1) {
+                    this.bikohyoji = zurasi;
+                }
+                //
+
               } else {
                 continue;
               }
