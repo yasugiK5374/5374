@@ -314,6 +314,9 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
             //振替日の対応
             if (this.label == this.transferdata[k].label) {
 
+              window.alert('取得日◇' + day_list[i].getTime() + '次回収日◇' + this.transferdata[k].calculationdate.getTime());
+
+
               if (day_list[i].getTime() == this.transferdata[k].calculationdate.getTime()) {
 
                   if (now.getTime() >= this.transferdata[k].nextdate.getTime() && now.getTime() <= this.transferdata[k].transferdate.getTime()) {
