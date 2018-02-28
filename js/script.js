@@ -314,6 +314,8 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
 
         for (var k in this.transferdata) {
 
+            window.alert('ふりかえ◇' + this.transferdata[k].label);
+
             //振替日の対応
             if (this.label == this.transferdata[k].label) {
 
