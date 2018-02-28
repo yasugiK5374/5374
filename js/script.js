@@ -306,15 +306,18 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
     this.bikohyoji = "";
 
     for (var i in day_list) {
+
       if (this.mostRecent == null && now.getTime() < day_list[i].getTime() + 24 * 60 * 60 * 1000) {
         this.mostRecent = day_list[i];
+
+        window.alert('ラベル◇' + this.label);
 
         for (var k in this.transferdata) {
 
             //振替日の対応
             if (this.label == this.transferdata[k].label) {
 
-              window.alert('取得日◇' + day_list[i].getTime() + '次回収日◇' + this.transferdata[k].calculationdate.getTime());
+              //◇ window.alert('取得日◇' + day_list[i].getTime() + '次回収日◇' + this.transferdata[k].calculationdate.getTime());
 
 
               if (day_list[i].getTime() == this.transferdata[k].calculationdate.getTime()) {
