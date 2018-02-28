@@ -310,16 +310,12 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
       if (this.mostRecent == null && now.getTime() < day_list[i].getTime() + 24 * 60 * 60 * 1000) {
         this.mostRecent = day_list[i];
 
-        window.alert('ラベル◇' + this.label + '日付：' + this.mostRecent);
-
         for (var k in this.transferdata) {
-
-            window.alert('計算中◇' + this.label + '振替：' + this.transferdata[k].label);
 
             //振替日の対応
             if (this.label == this.transferdata[k].label) {
 
-              //◇ window.alert('取得日◇' + day_list[i].getTime() + '次回収日◇' + this.transferdata[k].calculationdate.getTime());
+              window.alert('取得日◇' + day_list[i].getTime() + '次回収日◇' + this.transferdata[k].calculationdate.getTime());
 
 
               if (day_list[i].getTime() == this.transferdata[k].calculationdate.getTime()) {
