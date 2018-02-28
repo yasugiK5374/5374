@@ -205,6 +205,9 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
     var result_text = "";
     var day_list = new Array();
 
+    // ◇ 
+    this.bikohyoji = "";
+
     // 定期回収の場合
     if (this.regularFlg == 1) {
 
@@ -302,8 +305,8 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
     // ◇ var now = new Date();
     var now = new Date('2018/12/31');
 
-    // ◇ 
-    this.bikohyoji = "";
+    // ◇ 上に移動した
+    //this.bikohyoji = "";
 
     for (var i in day_list) {
 
