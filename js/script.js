@@ -258,6 +258,7 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
             if (areaObj.isBlankDay(d,s)) {
               if (WeekShift) {
                 isShift = true;
+                this.bikohyoji = "１月は１週ずらして収集します。";
               } else {
                 continue;
               }
