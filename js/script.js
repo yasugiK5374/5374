@@ -294,10 +294,7 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
       return 0;
     })
     //直近の日付を更新
-    var ndate = new Date();
-    var now = new Date(ndate.getFullYear(),ndate.getMonth()+1, ndate.getDate);
-	 
-    //var now = new Date(nowdate);
+    var now = new Date();
 
     // ◇ 
     this.bikohyoji = "";
@@ -312,9 +309,9 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
             if (this.label == this.transferdata[k].label) {
 
               if (day_list[i].getTime() == this.transferdata[k].calculationdate.getTime()) {
-                  alert('新今：' + now.getTime() + ' 次：' + this.transferdata[k].nextdate.getTime() + ' ：振：' + this.transferdata[k].transferdate.getTime());
+
                   if (now.getTime() >= this.transferdata[k].nextdate.getTime() && now.getTime() <= this.transferdata[k].transferdate.getTime()) {
-        
+
                       this.mostRecent = transferdata[k].transferdate;
                       this.bikohyoji = this.transferdata[k].biko;
                   }
