@@ -8,11 +8,6 @@ var cblankStartDD = 30;
 var cblankEndMM = 1;
 var cblankEndDD = 3;
 
-//var zurasi = '１月の収集日は１週ずれます。'
-
-// ◇  var 今日 = new Date('2019/01/30');
-
-
 /**
   エリア(ごみ処理の地域）を管理するクラスです。
 */
@@ -124,8 +119,7 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
   this.regularFlg = 1;      // 定期回収フラグ（デフォルトはオン:1）
 
   var result_text = "";
-  //◇ var today = new Date();
-  var today = new Date('2019/01/30');
+  var today = new Date();
 
   for (var j in this.dayCell) {
     if (this.dayCell[j].length == 1) {
@@ -207,14 +201,10 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
     var result_text = "";
     var day_list = new Array();
 
-    // ◇ 
-    this.bikohyoji = "";
-
     // 定期回収の場合
     if (this.regularFlg == 1) {
 
-      // ◇ var today = new Date();
-      var today = new Date('2019/01/30');
+      var today = new Date();
 
       // 12月 +3月　を表現
       for (var i = 0; i < MaxMonth; i++) {
@@ -260,11 +250,6 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
             if (areaObj.isBlankDay(d,s)) {
               if (WeekShift) {
                 isShift = true;
-                if (day_mix[j].length > 1) {
-                    //this.bikohyoji = zurasi;
-                }
-                //
-
               } else {
                 continue;
               }
@@ -309,14 +294,12 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
       return 0;
     })
     //直近の日付を更新
-    // ◇ var now = new Date();
-    var now = new Date('2019/01/30');
+    var now = new Date();
 
-    // ◇ 上に移動した
-    //this.bikohyoji = "";
+    // ◇ 
+    this.bikohyoji = "";
 
     for (var i in day_list) {
-
       if (this.mostRecent == null && now.getTime() < day_list[i].getTime() + 24 * 60 * 60 * 1000) {
         this.mostRecent = day_list[i];
 
@@ -605,10 +588,6 @@ $(function() {
   }
 
   function createAreaSelect() {
-    
-
-
-
     var $select_area = $('#select_area');
     var $select_group = $('#select_group');
     var select_html = "";
@@ -677,10 +656,7 @@ $(function() {
     //var ableSVG = false;  // SVG未使用の場合、descriptionの1項目目を使用
     var group = areaGroup[group_name];
     var areaModel = group[area_name];
-    // ◇ var today = new Date();
-    var today = new Date('2019/01/30');
-
-    window.alert('日付◇' + today);
+    var today = new Date();
 
     //直近の一番近い日付を計算します。
     areaModel.calcMostRect();
