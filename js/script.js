@@ -297,6 +297,7 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
     var now = new Date();
     var dymd = new Date(now.getFullYear(),now.getMonth()+1, now.getDate);
 	  
+    alert('now：' + now.getTime() + ' dymd：' + dymd.getTime());
 
     // ◇ 
     this.bikohyoji = "";
