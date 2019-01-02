@@ -298,8 +298,8 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
 	  
     var ndate = new Date();
     var now = new Date(ndate.getFullYear(),ndate.getMonth(), ndate.getDate());
-    //var now = new Date();	  
-    alert('now：' + now.getTime() + ' n月：' + now.getMonth());
+    //var now = new Date();
+    //alert('now：' + now.getTime() + ' n月：' + now.getMonth());
 
     // ◇ 
     this.bikohyoji = "";
