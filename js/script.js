@@ -294,10 +294,12 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
       return 0;
     })
     //直近の日付を更新
-    var now = new Date();
-    var dymd = new Date(now.getFullYear(),now.getMonth(), now.getDate());
 	  
-    alert('now：' + now.getTime() + ' n月：' + now.getMonth() + ' dymd：' + dymd.getTime() + ' d月：' + dymd.getMonth());
+	  
+    var ndate = new Date();
+    var now = new Date(ndate.getFullYear(),ndate.getMonth(), ndate.getDate());
+    //var now = new Date();	  
+    alert('now：' + now.getTime() + ' n月：' + now.getMonth());
 
     // ◇ 
     this.bikohyoji = "";
