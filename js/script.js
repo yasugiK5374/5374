@@ -32,7 +32,7 @@ var AreaModel = function() {
   */
   this.isBlankDay = function(currentDate,startKDate) {
   
-    alert("なか①" + startKDate);
+    alert("なか①☆" + startKDate);
 
     // center.csv の期間のチェック
     if (this.startDate.length > 0) {
@@ -54,17 +54,19 @@ var AreaModel = function() {
     // 固定期間チェック　休止終了日は開始日の次の年
     // ※ 20190320 休止開始が１２月のみ終了年を+1する
     if (tuki === 11 ) {
+        alert("なか③○");
         var endYear = startKDate.getFullYear() + 1;
     } else {
+        alert("なか③×");
         var endYear = startKDate.getFullYear();
     }
     end
     
-    alert("なか③" + endYear);
+    alert("なか④" + endYear);
     
     var endKDate = new Date(endYear, (cblankEndMM - 1), cblankEndDD);
     
-    alert("なか④" + endKDate);
+    alert("なか⑤" + endKDate);
 
     if (startKDate.getTime() <= currentDate.getTime() &&
       currentDate.getTime() <= endKDate.getTime()) {
