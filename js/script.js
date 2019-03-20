@@ -31,6 +31,8 @@ var AreaModel = function() {
     休止期間（主に年末年始）かどうかを判定します。
   */
   this.isBlankDay = function(currentDate,startKDate) {
+  
+    alert("なか①" + this.startDate);
 
     // center.csv の期間のチェック
     if (this.startDate.length > 0) {
@@ -44,6 +46,8 @@ var AreaModel = function() {
             }
         }
     }
+    
+    alert("なか②" + startKDate);
 
     // 固定期間チェック　休止終了日は開始日の次の年
     // ※ 20190320 休止開始が１２月のみ終了年を+1する
@@ -54,7 +58,11 @@ var AreaModel = function() {
     }
     end
     
+    alert("なか③" + endYear);
+    
     var endKDate = new Date(endYear, (cblankEndMM - 1), cblankEndDD);
+    
+    alert("なか④" + endKDate);
 
     if (startKDate.getTime() <= currentDate.getTime() &&
       currentDate.getTime() <= endKDate.getTime()) {
@@ -254,12 +262,10 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
 
                 var ky = date.getFullYear();
             }
-
-            alert("日付①");
             
             var s = new Date(ky, (cblankStartMM -1), cblankStartDD);
             
-            alert("日付②" + s);
+            alert("①" + s);
 
             if (areaObj.isBlankDay(d,s)) {
               if (WeekShift) {
