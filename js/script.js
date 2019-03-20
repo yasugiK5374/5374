@@ -1,8 +1,8 @@
 "use strict";
 
 // 固定の休止期間 開始日12月30日
-var cblankStartMM = 12;
-var cblankStartDD = 30;
+var cblankStartMM = 1;
+var cblankStartDD = 1;
 
 // 固定の休止期間 終了日1月3日
 var cblankEndMM = 1;
@@ -46,7 +46,14 @@ var AreaModel = function() {
     }
 
     // 固定期間チェック　休止終了日は開始日の次の年
-    var endYear = startKDate.getFullYear() + 1;
+    // ※ 20190320 休止開始が１２月のみ終了年を+1する
+    if (startKDate.getMonth == 11 ) {
+        var endYear = startKDate.getFullYear() + 1;
+    } else {
+        var endYear = startKDate.getFullYear();
+    }
+    end
+    
     var endKDate = new Date(endYear, (cblankEndMM - 1), cblankEndDD);
 
     if (startKDate.getTime() <= currentDate.getTime() &&
@@ -119,7 +126,9 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
   this.regularFlg = 1;      // 定期回収フラグ（デフォルトはオン:1）
 
   var result_text = "";
-  var today = new Date();
+  // ☆☆☆ var today = new Date();
+  var today = new Date('2019/12/31');
+  
 
   for (var j in this.dayCell) {
     if (this.dayCell[j].length == 1) {
@@ -204,8 +213,9 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
     // 定期回収の場合
     if (this.regularFlg == 1) {
 
-      var today = new Date();
-
+      // ☆☆☆ var today = new Date();
+      var today = new Date('2019/12/31');
+      
       // 12月 +3月　を表現
       for (var i = 0; i < MaxMonth; i++) {
 
@@ -295,7 +305,8 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
     })
     //直近の日付を更新
     //var now = new Date();
-    var ndate = new Date();
+    // ☆☆☆ var ndate = new Date();
+    var ndate = new Date('2019/12/31');
     var now = new Date(ndate.getFullYear(),ndate.getMonth(), ndate.getDate());
 
     // ◇ 
@@ -658,7 +669,8 @@ $(function() {
     //var ableSVG = false;  // SVG未使用の場合、descriptionの1項目目を使用
     var group = areaGroup[group_name];
     var areaModel = group[area_name];
-    var today = new Date();
+    // ☆☆☆ var today = new Date();
+    var today = new Date('2019/12/31');
 
     //直近の一番近い日付を計算します。
     areaModel.calcMostRect();
