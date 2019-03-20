@@ -53,7 +53,7 @@ var AreaModel = function() {
     
     // 固定期間チェック　休止終了日は開始日の次の年
     // ※ 20190320 休止開始が１２月のみ終了年を+1する
-    if (tuki === 11 ) {
+    if (tuki == 11 ) {
         alert("なか③○");
         var endYear = startKDate.getFullYear() + 1;
     } else {
