@@ -255,7 +255,11 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
                 var ky = date.getFullYear();
             }
 
+            alert("日付①");
+            
             var s = new Date(ky, (cblankStartMM -1), cblankStartDD);
+            
+            alert("日付②" + s);
 
             if (areaObj.isBlankDay(d,s)) {
               if (WeekShift) {
