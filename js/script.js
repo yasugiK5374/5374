@@ -268,6 +268,7 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
                 continue;
               }
             }
+            alert("日付③");
             if (isShift) {
               d.setTime(d.getTime() + 7 * 24 * 60 * 60 * 1000);
             }
