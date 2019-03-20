@@ -32,7 +32,7 @@ var AreaModel = function() {
   */
   this.isBlankDay = function(currentDate,startKDate) {
   
-    alert("なか①" + startKDate);
+    alert("なか①☆" + startKDate);
 
     // center.csv の期間のチェック
     if (this.startDate.length > 0) {
