@@ -59,7 +59,9 @@ var AreaModel = function() {
     
     var endKDate = new Date(endYear, (cblankEndMM - 1), cblankEndDD);
     
+    alert("開始日：" + startKDate);
     alert("終了日：" + endKDate);
+    
     
     if (startKDate.getTime() <= currentDate.getTime() &&
       currentDate.getTime() <= endKDate.getTime()) {
