@@ -258,12 +258,21 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
             
             var s = new Date(ky, (cblankStartMM -1), cblankStartDD);
             
+            
+            
+            alert("Ｃ名：" + this.centerName)
+            
             if (areaObj.isBlankDay(d,s)) {
-              if (WeekShift) {
-                isShift = true;
-              } else {
-                continue;
-              }
+             // ◆◆◆
+             
+
+            
+            
+             // ◆◆◆ if (WeekShift) {
+             // ◆◆◆   isShift = true;
+             // ◆◆◆ } else {
+             // ◆◆◆   continue;
+             // ◆◆◆ }
             }
 
             if (isShift) {
