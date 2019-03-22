@@ -263,7 +263,7 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
                     var ky = date.getFullYear();
                 }
             
-            } else }
+            } else {
             
                 var ky = date.getFullYear();
             }
