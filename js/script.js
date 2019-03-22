@@ -251,7 +251,7 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
             //休止期間なら、今後の日程を１週間ずらす
             
             // ◆◆◆ 休止開始が１月１日
-            if (cblankStartMM == 12)
+            if (cblankStartMM == 12) {
 
                 // 固定の休止期間
                 // １月１日～終了日 は休止開始年を昨年にする
