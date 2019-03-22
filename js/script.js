@@ -260,10 +260,20 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
             
             var cn = areaObj.centerName;
             
-            alert("Ｃ名：" + cn)
-            
             if (areaObj.isBlankDay(d,s)) {
-             // ◆◆◆
+                // ◆◆◆
+                if (cn == "A") {
+                    if (WeekShiftA) {
+                        isShift = true;
+                        alert("区分：" + cn)
+                    }
+                } else {
+                     if (WeekShiftB) {
+                        isShift = true;
+                        alert("区分：" + cn)
+                    }
+                }
+
              // ◆◆◆ if (WeekShift) {
              // ◆◆◆   isShift = true;
              // ◆◆◆ } else {
