@@ -51,11 +51,15 @@ var AreaModel = function() {
     // ※ 20190320 休止開始が１２月のみ終了年を+1する
     if (tuki == 11 ) {
         var endYear = startKDate.getFullYear() + 1;
+        
     } else {
         var endYear = startKDate.getFullYear();
+        
     }
     
     var endKDate = new Date(endYear, (cblankEndMM - 1), cblankEndDD);
+    
+    alert("終了日：" + endKDate);
     
     if (startKDate.getTime() <= currentDate.getTime() &&
       currentDate.getTime() <= endKDate.getTime()) {
