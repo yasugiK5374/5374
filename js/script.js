@@ -255,7 +255,7 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
 
                 // 固定の休止期間
                 // １月１日～終了日 は休止開始年を昨年にする
-                if (date.getMonth() == (cblankEndMM - 1) && date.getDate() <= cblankEndDD)  {
+                if (date.getMonth() == (cblankEndMM - 1) && date.getDate() <= cblankEndDD) {
 
                     var ky = (date.getFullYear()) - 1;
                 } else {
