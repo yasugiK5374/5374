@@ -1,8 +1,8 @@
 "use strict";
 
 // 固定の休止期間 開始日12月30日
-var cblankStartMM = 1;
-var cblankStartDD = 1;
+var cblankStartMM = 12;
+var cblankStartDD = 30;
 
 // 固定の休止期間 終了日1月3日
 var cblankEndMM = 1;
@@ -45,13 +45,15 @@ var AreaModel = function() {
         }
     }
 
-    // 固定期間チェック　休止終了日は開始日の次の年
-    var endYear = startKDate.getFullYear() + 1;
-    var endKDate = new Date(endYear, (cblankEndMM - 1), cblankEndDD);
+    if (startKDate != false)
+        // 固定期間チェック　休止終了日は開始日の次の年
+        var endYear = startKDate.getFullYear() + 1;
+        var endKDate = new Date(endYear, (cblankEndMM - 1), cblankEndDD);
 
-    if (startKDate.getTime() <= currentDate.getTime() &&
-      currentDate.getTime() <= endKDate.getTime()) {
-      return true;
+        if (startKDate.getTime() <= currentDate.getTime() &&
+          currentDate.getTime() <= endKDate.getTime()) {
+          return true;
+        }
     }
 
     return false;
@@ -121,7 +123,7 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
   var result_text = "";
   // ☆☆☆ var today = new Date();
   var today = new Date('2019/12/31');
-
+  
   for (var j in this.dayCell) {
     if (this.dayCell[j].length == 1) {
       result_text += "毎週" + this.dayCell[j] + "曜日 ";
@@ -205,9 +207,8 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
     // 定期回収の場合
     if (this.regularFlg == 1) {
 
-      // ☆☆☆var today = new Date();
+      // ☆☆☆ var today = new Date();
       var today = new Date('2019/12/31');
-      
 
       // 12月 +3月　を表現
       for (var i = 0; i < MaxMonth; i++) {
@@ -228,10 +229,7 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
           for (var week = 0; week < 5; week++) {
             //4月1日を起点として第n曜日などを計算する。
             var date = new Date(curYear, month - 1, 1);
-            
-            // ☆☆☆var d = new Date(date);
-            var d = new Date('2019/12/31');
-            
+            var d = new Date(date);
             //コンストラクタでやろうとするとうまく行かなかった。。
             //
             //4月1日を基準にして曜日の差分で時間を戻し、最大５週までの増加させて毎週を表現
@@ -240,50 +238,44 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
             );
             //年末年始のずらしの対応
             //休止期間なら、今後の日程を１週間ずらす
+            
+            if (KoteiKN) {
 
-            // 固定の休止期間
-            // １月１日～終了日 は休止開始年を昨年にする
-            if (date.getMonth() == (cblankEndMM - 1) && date.getDate() <= cblankEndDD)  {
+                // 固定の休止期間
+                // １月１日～終了日 は休止開始年を昨年にする
+                if (date.getMonth() == (cblankEndMM - 1) && date.getDate() <= cblankEndDD)  {
 
-                var ky = (date.getFullYear()) - 1;
+                    var ky = (date.getFullYear()) - 1;
+                } else {
+
+                    var ky = date.getFullYear();
+                }
+                var s = new Date(ky, (cblankStartMM -1), cblankStartDD);
+            
             } else {
-
-                var ky = date.getFullYear();
+                var s = false;
             }
 
-            var s = new Date(ky, (cblankStartMM -1), cblankStartDD);
-            
-            // ◆◆◆
-            var cn = areaObj.centerName;
-           // alert("①：" + cn);
-
             if (areaObj.isBlankDay(d,s)) {
+                var cn = areaObj.centerName;
 
                 // ◆◆◆
                 if (cn == "A") {
                     if (WeekShiftA) {
                         isShift = true;
-                     //   alert("区分：" + cn);
-                    } else {
-                        continue;
                     }
                 } else {
-                    if (WeekShiftB) {
+                     if (WeekShiftB) {
                         isShift = true;
-                     //   alert("区分：" + cn);
-                    } else {
-                        continue;
                     }
                 }
-            
-            
-            // ◆◆◆  if (WeekShift) {
-            // ◆◆◆    isShift = true;
-            // ◆◆◆  } else {
-            // ◆◆◆    continue;
-            // ◆◆◆  }
+
+              // ◆◆◆if (WeekShift) {
+              // ◆◆◆  isShift = true;
+              // ◆◆◆} else {
+              // ◆◆◆  continue;
+              // ◆◆◆}
             }
-            
             if (isShift) {
               d.setTime(d.getTime() + 7 * 24 * 60 * 60 * 1000);
             }
