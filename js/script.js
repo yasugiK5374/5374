@@ -45,7 +45,10 @@ var AreaModel = function() {
         }
     }
     
+    alert("②：" + startKDate);
+    
     var tuki = startKDate.getMonth();
+    alert("③");
     
     // 固定期間チェック　休止終了日は開始日の次の年
     // ※ 20190320 休止開始が１２月のみ終了年を+1する
@@ -53,10 +56,11 @@ var AreaModel = function() {
         var endYear = startKDate.getFullYear() + 1;
         
     } else {
+        alert("④");
         // １月の場合
         if (tuki == 0 ) {
             if (now.getMonth() == 12) {
-           
+                alert("⑤");
                 var endYear = startKDate.getFullYear() + 1;
             } else {
            
@@ -67,8 +71,10 @@ var AreaModel = function() {
             var endYear = startKDate.getFullYear();
         }
     }
+    alert("⑥");
     
     var endKDate = new Date(endYear, (cblankEndMM - 1), cblankEndDD);
+
     
     alert("開始日：" + startKDate);
     alert("終了日：" + endKDate);
@@ -289,6 +295,8 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
             var s = new Date(ky, (cblankStartMM -1), cblankStartDD);
             
             var cn = areaObj.centerName;
+            
+            alert("①：" + cn);
             
             if (areaObj.isBlankDay(d,s)) {
                 // ◆◆◆
