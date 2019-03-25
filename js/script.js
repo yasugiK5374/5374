@@ -39,7 +39,7 @@ var AreaModel = function() {
         
             var ima = currentDate.getFullYear() + "/" + (currentDate.getMonth() + 1) + "/" + currentDate.getDate();
         
-            alert(ima + "○" + this.startDate[i]);
+           // alert(ima + "○" + this.startDate[i]);
 
             if (this.startDate[i].getTime() <= currentDate.getTime() &&
               currentDate.getTime() <= this.endDate[i].getTime()) {
