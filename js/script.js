@@ -53,15 +53,25 @@ var AreaModel = function() {
         var endYear = startKDate.getFullYear() + 1;
         
     } else {
-        var endYear = startKDate.getFullYear();
+        // １月の場合
+        if (tuki == 0 ) {
+            if (now.getMonth() == 12) {
+           
+                var endYear = startKDate.getFullYear() + 1;
+            } else {
+           
+                var endYear = startKDate.getFullYear();
+            }
+        } else {
         
+            var endYear = startKDate.getFullYear();
+        }
     }
     
     var endKDate = new Date(endYear, (cblankEndMM - 1), cblankEndDD);
     
     alert("開始日：" + startKDate);
     alert("終了日：" + endKDate);
-    
     
     if (startKDate.getTime() <= currentDate.getTime() &&
       currentDate.getTime() <= endKDate.getTime()) {
@@ -252,10 +262,8 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
             //年末年始のずらしの対応
             //休止期間なら、今後の日程を１週間ずらす
             
-            // ◆◆◆ 休止開始が１月１日
+            // 固定の休止期間 の年設定
             if (cblankStartMM == 12) {
-
-                // 固定の休止期間
                 // １月１日～終了日 は休止開始年を昨年にする
                 if (date.getMonth() == (cblankEndMM - 1) && date.getDate() <= cblankEndDD) {
 
@@ -266,6 +274,14 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
                 }
             
             } else {
+                //◆◆◆ 固定の休止開始が１月以降
+                if (cblankStartMM == 1) {
+                // １月１日～終了日 は休止開始年を昨年にする
+                if (date.getMonth() == (cblankEndMM - 1) && date.getDate() <= cblankEndDD) {
+                
+                   var ky = (date.getFullYear()) - 1;
+                }
+                   
             
                 var ky = date.getFullYear();
             }
