@@ -1,8 +1,8 @@
 "use strict";
 
 // 固定の休止期間 開始日12月30日
-var cblankStartMM = 12;
-var cblankStartDD = 30;
+var cblankStartMM = 1;
+var cblankStartDD = 1;
 
 // 固定の休止期間 終了日1月3日
 var cblankEndMM = 1;
@@ -119,7 +119,8 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
   this.regularFlg = 1;      // 定期回収フラグ（デフォルトはオン:1）
 
   var result_text = "";
-  var today = new Date();
+  // ☆☆☆ var today = new Date();
+  var today = new Date('2019/12/31');
 
   for (var j in this.dayCell) {
     if (this.dayCell[j].length == 1) {
@@ -204,7 +205,9 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
     // 定期回収の場合
     if (this.regularFlg == 1) {
 
-      var today = new Date();
+      // ☆☆☆var today = new Date();
+      var today = new Date('2019/12/31');
+      
 
       // 12月 +3月　を表現
       for (var i = 0; i < MaxMonth; i++) {
@@ -225,7 +228,10 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
           for (var week = 0; week < 5; week++) {
             //4月1日を起点として第n曜日などを計算する。
             var date = new Date(curYear, month - 1, 1);
-            var d = new Date(date);
+            
+            // ☆☆☆var d = new Date(date);
+            var d = new Date('2019/12/31');
+            
             //コンストラクタでやろうとするとうまく行かなかった。。
             //
             //4月1日を基準にして曜日の差分で時間を戻し、最大５週までの増加させて毎週を表現
@@ -257,14 +263,14 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
                 if (cn == "A") {
                     if (WeekShiftA) {
                         isShift = true;
-                        alert("区分：" + cn);
+                     //   alert("区分：" + cn);
                     } else {
                         continue;
                     }
                 } else {
                     if (WeekShiftB) {
                         isShift = true;
-                        alert("区分：" + cn);
+                     //   alert("区分：" + cn);
                     } else {
                         continue;
                     }
@@ -319,7 +325,8 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
     })
     //直近の日付を更新
     //var now = new Date();
-    var ndate = new Date();
+    // ☆☆☆ var ndate = new Date();
+    var ndate = new Date('2019/12/31');
     var now = new Date(ndate.getFullYear(),ndate.getMonth(), ndate.getDate());
 
     // ◇ 
@@ -682,7 +689,8 @@ $(function() {
     //var ableSVG = false;  // SVG未使用の場合、descriptionの1項目目を使用
     var group = areaGroup[group_name];
     var areaModel = group[area_name];
-    var today = new Date();
+    // ☆☆☆ var today = new Date();
+    var today = new Date('2019/12/31');
 
     //直近の一番近い日付を計算します。
     areaModel.calcMostRect();
