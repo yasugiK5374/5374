@@ -41,7 +41,7 @@ var AreaModel = function() {
         
             if (this.startDate[i].getTime() <= currentDate.getTime()) {
            
-                alert(ima + "○" + this.startDate[i] + "○" + this.endDate[i].getTime());
+               // alert(ima + "○" + this.startDate[i] + "○" + this.endDate[i].getTime());
             }
             
             
