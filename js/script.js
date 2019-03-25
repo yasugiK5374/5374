@@ -44,9 +44,6 @@ var AreaModel = function() {
                // alert(ima + "○" + this.startDate[i] + "○" + this.endDate[i].getTime());
             }
             
-            
-
-
             if (this.startDate[i].getTime() <= currentDate.getTime() &&
               currentDate.getTime() <= this.endDate[i].getTime()) {
               
@@ -274,10 +271,14 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
                 if (cn == "A") {
                     if (WeekShiftA) {
                         isShift = true;
+                    } else {
+                        continue;
                     }
                 } else {
                      if (WeekShiftB) {
                         isShift = true;
+                    } else {
+                        continue;
                     }
                 }
 
