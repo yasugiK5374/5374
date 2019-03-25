@@ -295,12 +295,12 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
                 if (cn == "A") {
                     if (WeekShiftA) {
                         isShift = true;
-                        alert("区分：" + cn)
+                        alert("区分：" + cn);
                     }
                 } else {
                      if (WeekShiftB) {
                         isShift = true;
-                        alert("区分：" + cn)
+                        alert("区分：" + cn);
                     }
                 }
 
