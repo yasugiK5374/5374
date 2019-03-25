@@ -36,6 +36,8 @@ var AreaModel = function() {
     if (this.startDate.length > 0) {
 
         for (var i in this.startDate) {
+        
+            alert("かいしび：" + i);
 
             if (this.startDate[i].getTime() <= currentDate.getTime() &&
               currentDate.getTime() <= this.endDate[i].getTime()) {
