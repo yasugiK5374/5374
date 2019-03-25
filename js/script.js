@@ -246,14 +246,36 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
             }
 
             var s = new Date(ky, (cblankStartMM -1), cblankStartDD);
+            
+            alert("①：" + cn);
 
             if (areaObj.isBlankDay(d,s)) {
-              if (WeekShift) {
-                isShift = true;
-              } else {
-                continue;
-              }
+
+                // ◆◆◆
+                if (cn == "A") {
+                    if (WeekShiftA) {
+                        isShift = true;
+                        alert("区分：" + cn);
+                    } else {
+                        continue;
+                    }
+                } else {
+                    if (WeekShiftB) {
+                        isShift = true;
+                        alert("区分：" + cn);
+                    } else {
+                        continue;
+                    }
+                }
+            
+            
+            // ◆◆◆  if (WeekShift) {
+            // ◆◆◆    isShift = true;
+            // ◆◆◆  } else {
+            // ◆◆◆    continue;
+            // ◆◆◆  }
             }
+            
             if (isShift) {
               d.setTime(d.getTime() + 7 * 24 * 60 * 60 * 1000);
             }
