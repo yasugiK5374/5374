@@ -247,6 +247,8 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
 
             var s = new Date(ky, (cblankStartMM -1), cblankStartDD);
             
+            // ◆◆◆
+            var cn = areaObj.centerName;
             alert("①：" + cn);
 
             if (areaObj.isBlankDay(d,s)) {
