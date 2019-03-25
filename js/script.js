@@ -45,7 +45,7 @@ var AreaModel = function() {
         }
     }
 
-    if (startKDate != false)
+    if (startKDate != false) {
         // 固定期間チェック　休止終了日は開始日の次の年
         var endYear = startKDate.getFullYear() + 1;
         var endKDate = new Date(endYear, (cblankEndMM - 1), cblankEndDD);
