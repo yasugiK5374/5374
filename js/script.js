@@ -232,15 +232,19 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
     var day_mix = this.dayCell;
     var result_text = "";
     var day_list = new Array();
+    
+    alert("☆①");
 
     // 定期回収の場合
     if (this.regularFlg == 1) {
-
+      alert("☆②");
       // ☆☆☆ var today = new Date();
       var today = new Date('2019/12/31');
       
       // 12月 +3月　を表現
       for (var i = 0; i < MaxMonth; i++) {
+      
+        alert("☆③：" + i);
 
         var curMonth = today.getMonth() + i;
         var curYear = today.getFullYear() + Math.floor(curMonth / 12);
@@ -868,6 +872,8 @@ $(function() {
     }
     setSelectedGroupName(group_name);
     setSelectedAreaName(area_name);
+    
+    alert("☆③" + area_name);
 
     if ($("#accordion").children().length === 0 && descriptions.length === 0) {
 
