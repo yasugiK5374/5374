@@ -1,8 +1,8 @@
 "use strict";
 
 // 固定の休止期間 開始日12月30日
-var cblankStartMM = 1;
-var cblankStartDD = 1;
+var cblankStartMM = 12;
+var cblankStartDD = 30;
 
 // 固定の休止期間 終了日1月3日
 var cblankEndMM = 1;
@@ -31,7 +31,7 @@ var AreaModel = function() {
     休止期間（主に年末年始）かどうかを判定します。
   */
   this.isBlankDay = function(currentDate,startKDate) {
-  
+
     // center.csv の期間のチェック
     if (this.startDate.length > 0) {
 
@@ -44,41 +44,11 @@ var AreaModel = function() {
             }
         }
     }
-    
-    alert("②：" + startKDate);
-    
-    var tuki = startKDate.getMonth();
-    alert("③");
-    
+
     // 固定期間チェック　休止終了日は開始日の次の年
-    // ※ 20190320 休止開始が１２月のみ終了年を+1する
-    if (tuki == 11 ) {
-        var endYear = startKDate.getFullYear() + 1;
-        
-    } else {
-        alert("④");
-        // １月の場合
-        if (tuki == 0 ) {
-            if (now.getMonth() == 12) {
-                alert("⑤");
-                var endYear = startKDate.getFullYear() + 1;
-            } else {
-           
-                var endYear = startKDate.getFullYear();
-            }
-        } else {
-        
-            var endYear = startKDate.getFullYear();
-        }
-    }
-    alert("⑥");
-    
+    var endYear = startKDate.getFullYear() + 1;
     var endKDate = new Date(endYear, (cblankEndMM - 1), cblankEndDD);
 
-    
-    alert("開始日：" + startKDate);
-    alert("終了日：" + endKDate);
-    
     if (startKDate.getTime() <= currentDate.getTime() &&
       currentDate.getTime() <= endKDate.getTime()) {
       return true;
@@ -149,9 +119,7 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
   this.regularFlg = 1;      // 定期回収フラグ（デフォルトはオン:1）
 
   var result_text = "";
-  // ☆☆☆ var today = new Date();
-  var today = new Date('2019/12/31');
-  
+  var today = new Date();
 
   for (var j in this.dayCell) {
     if (this.dayCell[j].length == 1) {
@@ -232,19 +200,14 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
     var day_mix = this.dayCell;
     var result_text = "";
     var day_list = new Array();
-    
-    alert("☆①");
 
     // 定期回収の場合
     if (this.regularFlg == 1) {
-      alert("☆②");
-      // ☆☆☆ var today = new Date();
-      var today = new Date('2019/12/31');
-      
+
+      var today = new Date();
+
       // 12月 +3月　を表現
       for (var i = 0; i < MaxMonth; i++) {
-      
-        alert("☆③：" + i);
 
         var curMonth = today.getMonth() + i;
         var curYear = today.getFullYear() + Math.floor(curMonth / 12);
@@ -271,58 +234,26 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
             );
             //年末年始のずらしの対応
             //休止期間なら、今後の日程を１週間ずらす
-            
-            // 固定の休止期間 の年設定
-            if (cblankStartMM == 12) {
-                // １月１日～終了日 は休止開始年を昨年にする
-                if (date.getMonth() == (cblankEndMM - 1) && date.getDate() <= cblankEndDD) {
 
-                    var ky = (date.getFullYear()) - 1;
-                } else {
+            // 固定の休止期間
+            // １月１日～終了日 は休止開始年を昨年にする
+            if (date.getMonth() == (cblankEndMM - 1) && date.getDate() <= cblankEndDD)  {
 
-                    var ky = date.getFullYear();
-                }
-            
+                var ky = (date.getFullYear()) - 1;
             } else {
-                //◆◆◆ 固定の休止開始が１月以降
-                if (cblankStartMM == 1) {
-                // １月１日～終了日 は休止開始年を昨年にする
-                if (date.getMonth() == (cblankEndMM - 1) && date.getDate() <= cblankEndDD) {
-                
-                   var ky = (date.getFullYear()) - 1;
-                }
-                   
-            
+
                 var ky = date.getFullYear();
             }
-            
+
             var s = new Date(ky, (cblankStartMM -1), cblankStartDD);
-            
-            var cn = areaObj.centerName;
-            
-            alert("①：" + cn);
-            
+
             if (areaObj.isBlankDay(d,s)) {
-                // ◆◆◆
-                if (cn == "A") {
-                    if (WeekShiftA) {
-                        isShift = true;
-                        alert("区分：" + cn);
-                    }
-                } else {
-                     if (WeekShiftB) {
-                        isShift = true;
-                        alert("区分：" + cn);
-                    }
-                }
-
-             // ◆◆◆ if (WeekShift) {
-             // ◆◆◆   isShift = true;
-             // ◆◆◆ } else {
-             // ◆◆◆   continue;
-             // ◆◆◆ }
+              if (WeekShift) {
+                isShift = true;
+              } else {
+                continue;
+              }
             }
-
             if (isShift) {
               d.setTime(d.getTime() + 7 * 24 * 60 * 60 * 1000);
             }
@@ -364,8 +295,7 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
     })
     //直近の日付を更新
     //var now = new Date();
-    // ☆☆☆ var ndate = new Date();
-    var ndate = new Date('2019/12/31');
+    var ndate = new Date();
     var now = new Date(ndate.getFullYear(),ndate.getMonth(), ndate.getDate());
 
     // ◇ 
@@ -728,8 +658,7 @@ $(function() {
     //var ableSVG = false;  // SVG未使用の場合、descriptionの1項目目を使用
     var group = areaGroup[group_name];
     var areaModel = group[area_name];
-    // ☆☆☆ var today = new Date();
-    var today = new Date('2019/12/31');
+    var today = new Date();
 
     //直近の一番近い日付を計算します。
     areaModel.calcMostRect();
@@ -872,8 +801,6 @@ $(function() {
     }
     setSelectedGroupName(group_name);
     setSelectedAreaName(area_name);
-    
-    alert("☆③" + area_name);
 
     if ($("#accordion").children().length === 0 && descriptions.length === 0) {
 
