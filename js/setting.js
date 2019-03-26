@@ -6,6 +6,7 @@ var MaxDescription = 9; // ごみの最大種類、９を超えない場合は�
 var MaxMonth = 3;
 
 var KoteiKN = false;    // 固定の休止期間１２月３０日～１月３日を使用するときはtrue。
+
 var WeekShiftA = false; // 休止期間なら週をずらすときは、true。Ａ地区
 var WeekShiftB = true;  // 休止期間なら週をずらすときは、true。Ｂ地区
 
